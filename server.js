@@ -33,22 +33,13 @@
        throw error;
    }
  };
- 
- const onListening = () => {
-   const addr = server.address();
- };
- 
+
  const port = normalizePort(process.env.PORT);
  app.set('port', port);
- 
- /**
-  * Create HTTP server.
-  */
  
 const server = http.createServer(app);
 
 server.on('error', onError);
-server.on('listening', onListening);
 server.listen(port);
 console.log(`started on port ${port}`);
 

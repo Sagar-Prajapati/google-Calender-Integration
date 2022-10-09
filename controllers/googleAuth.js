@@ -2,7 +2,6 @@
 import google from 'googleapis';
 import dotenv from 'dotenv';
 
-
 dotenv.config();
 
 const SCOPES = [
@@ -35,8 +34,6 @@ export const googleRedirected = async (req, res) => {
     const oAuth2Client = getAuthClient();
     const token = await oAuth2Client.getToken(code);
     oAuth2Client.setCredentials(token.tokens);
-
-
 
     newTokenData = token.tokens;
 

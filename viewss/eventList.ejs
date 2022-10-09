@@ -9,9 +9,7 @@
 
    <title>TEST</title>
 
-   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-   <style>
+  <style>
      html, body {
      display: flex;
      justify-content: center;
@@ -115,16 +113,16 @@
 
       <% if (eventData.length) { %>
         <tbody>
-          <tr>
           <% eventData.forEach(function(event, index) { %>
+          <tr>
           <td><%= index + 1 %></td>
           <td><%= event.summary %></td>
-          <td><%= new Date(event.start.dateTime).toDateString() %></td>
-          <td><%= new Date(event.end.dateTime).toDateString() %></td>
+          <td><%= new Date(event.start.dateTime).toUTCString() %></td>
+          <td><%= new Date(event.end.dateTime).toUTCString() %></td>
           <td><%= event.status %></td>
           <td><a href="<%= event.htmlLink %>">Click Here</a></td>
-              <% })%>
         </tr>
+        <% })%>
       </tbody>
       <% }else{%>
         <tbody><tr>

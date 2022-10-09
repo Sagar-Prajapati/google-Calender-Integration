@@ -1,5 +1,4 @@
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import router from './routers/testRoutes';
 
 
@@ -7,12 +6,10 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 
 app.set('view engine', 'ejs');
 app.set('views', 'viewss');
-
 
 
 app.use((req, res, next) => {
