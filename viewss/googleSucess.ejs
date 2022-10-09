@@ -52,16 +52,6 @@
      margin: 0;
      border-radius: 5px 0 0 5px;
      }
-     input[type=text]{
-     width: calc(100% - 57px);
-     height: 36px;
-     margin: 13px 0 0 -5px;
-     padding-left: 10px; 
-     border-radius: 0 5px 5px 0;
-     border: solid 1px #cbc9c9; 
-     box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
-     background: #fff; 
-     }
      #icon {
      display: inline-block;
      padding: 9.3px 15px;
@@ -92,13 +82,11 @@
   </head>
 <body id="page-top" style="background-color: #baf4de;">
   <div class="main-block">
-    <h1>Wellcome to Google Calendar</h1>
-    <form method="post" action="/rest/v1/auth">
-      <h5>Enter Your Name below and Connect with you Google Calendar</h5>
-      <label id="icon" for="name"><i class="fas fa-user"></i></label>
-      <input type="text" name="name" id="name" placeholder="Name" required/>
+    <h1><%= name %>, Authentication successfull</h1>
+    <form action="/rest/v1/events">
+      <h5>You are now connected with your google calendar</h5>
       <div class="btn-block">
-        <button type="submit">Submit</button>
+        <button type="submit" href="/">Get List Of Events</button>
       </div>
     </form>
   </div>

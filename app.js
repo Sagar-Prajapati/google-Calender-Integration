@@ -1,7 +1,5 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
-// import path from 'path'
-// import { fileURLToPath } from 'url';
 import router from './routers/testRoutes';
 
 
@@ -27,14 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
 
 app.use('/rest/v1', router);
-// console.log(__dirname);
-
-// app.use(express.static(path.join(__dirname, 'viewss')));
-
-// app.use('/',(req,res)=>{return res.ok('Google Calender Integration')});
 
 export default app;

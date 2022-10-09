@@ -36,8 +36,7 @@
      font-weight: 300;
      text-align: center;
      }
-     .main-block {
-     max-width: 340px;  
+     .main-block {  
      padding: 10px 0;
      margin: auto;
      border-radius: 5px; 
@@ -45,6 +44,14 @@
      box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
      background: #ebebeb; 
      }
+     table {
+       border-collapse: collapse;
+       width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
      form {
      margin: 0 30px;
      }
@@ -92,15 +99,40 @@
   </head>
 <body id="page-top" style="background-color: #baf4de;">
   <div class="main-block">
-    <h1>Wellcome to Google Calendar</h1>
-    <form method="post" action="/rest/v1/auth">
-      <h5>Enter Your Name below and Connect with you Google Calendar</h5>
-      <label id="icon" for="name"><i class="fas fa-user"></i></label>
-      <input type="text" name="name" id="name" placeholder="Name" required/>
-      <div class="btn-block">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <h1>Your Event Lists</h1>
+
+    <table class="table table-bordered" id="order">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Summary</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Link</th>
+        </tr>  
+      </thead>
+
+      <% if (eventData.length) { %>
+        <tbody>
+          <tr>
+          <% eventData.forEach(function(event, index) { %>
+          <td><%= index + 1 %></td>
+          <td><%= event.summary %></td>
+          <td><%= new Date(event.start.dateTime).toDateString() %></td>
+          <td><%= new Date(event.end.dateTime).toDateString() %></td>
+          <td><%= event.status %></td>
+          <td><a href="<%= event.htmlLink %>">Click Here</a></td>
+              <% })%>
+        </tr>
+      </tbody>
+      <% }else{%>
+        <tbody><tr>
+          <td colspan="12"><h5>No Event Found</h5></td>
+        </tr></tbody>
+        <% } %> 
+    </table>
+
   </div>
 </body>
 </html>
