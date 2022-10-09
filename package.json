@@ -1,0 +1,31 @@
+{
+  "name": "google-calender-integration",
+  "version": "1.0.0",
+  "description": "googleCalender-integration",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node server.js",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagar-Prajapati/google-Calender-Integration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sagar-Prajapati/google-Calender-Integration/issues"
+  },
+  "homepage": "https://github.com/Sagar-Prajapati/google-Calender-Integration#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
