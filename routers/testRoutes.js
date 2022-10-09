@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get('/redirect', googleRedirected);
 router.post('/auth', authGoogle)
-router.get('/events', getEvents);
+router.post('/events', getEvents);
 
 router.get('/', homePage);
 

@@ -54,7 +54,6 @@ export const authGoogle = async (req, res) => {
   try {
 
     const { name } = req.body;
-
     const oAuth2Client = getAuthClient();
 
     const authUrl = oAuth2Client.generateAuthUrl({
@@ -71,7 +70,7 @@ export const authGoogle = async (req, res) => {
 
 export const getEvents = async (req, res) => {
   try {
-
+    const { startDate, endDate } = req.body;
     const oAuth2Client = getAuthClient();
 
     oAuth2Client.setCredentials(newTokenData);
@@ -88,8 +87,8 @@ export const getEvents = async (req, res) => {
 
       const response = await calendar.events.list({
         calendarId: 'primary',
-        timeMin: '2022-10-09T10:44:06.838Z',
-        timeMax: '2022-11-09T10:44:06.838Z'
+        timeMin: new Date(startDate),
+        timeMax: new Date(endDate)
       });
 
       eventData = response.data.items;

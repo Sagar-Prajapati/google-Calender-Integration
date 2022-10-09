@@ -83,9 +83,15 @@
 <body id="page-top" style="background-color: #baf4de;">
   <div class="main-block">
     <h1><%= name %>, Authentication successfull</h1>
-    <form action="/rest/v1/events">
+    <form method="post" action="/rest/v1/events">
       <h5>You are now connected with your google calendar</h5>
+      <h5>Choose between which dates , you need to get Events</h5>
       <div class="btn-block">
+        <label for="startDate">Start Date:</label>
+        <input type="date" name="startDate" id="startDate" placeholder="Start Date" required/>
+        <br><br>
+        <label for="endDate">End Date:</label>
+        <input type="date" name="endDate" id="endDate" placeholder="End Date" required/>
         <button type="submit" href="/">Get List Of Events</button>
       </div>
     </form>
